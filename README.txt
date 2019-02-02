@@ -15,7 +15,7 @@ ponadto zostają utworzone pliki obrazujące:
 - Macierz korelacji
 - Rozkład zmiennej PRICE
 - Wykres punktowy Price test vs Price predicted test
-- Wykres punktowy Price train vs Price train test
+- Wykres punktowy Price train vs Price predicted train
 - Wykres punktowy Price względem RM
 - Wykres punktowy Price względem LSTAT
 - Wykres punktowy Price względem PTRATIO
