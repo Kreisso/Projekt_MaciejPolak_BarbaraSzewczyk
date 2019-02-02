@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 import pickle
+from sklearn.model_selection import cross_val_score
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
@@ -25,6 +26,12 @@ print("\n--- LSTAT i RM i PTRATIO i INDUS \n")
 
 # --- Odczyt modelu z pliku
 lin_model = pickle.load(open('LSTAT_RM_PTRATIO_INDUS/lin_model.model', 'rb'))
+
+
+
+scores = cross_val_score(lin_model, X_test, Y_test, cv=5)
+print("-- Cross Validation\n")
+print(scores)
 
 
 y_train_predict = lin_model.predict(X_train)
@@ -69,6 +76,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, rando
 # --- Odczyt modelu z pliku
 lin_model = pickle.load(open('LSTAT_RM_PTRATIO/lin_model.model', 'rb'))
 
+scores = cross_val_score(lin_model, X_test, Y_test, cv=5)
+print("-- Cross Validation\n")
+print(scores)
 
 y_train_predict = lin_model.predict(X_train)
 rmse = (np.sqrt(mean_squared_error(Y_train, y_train_predict)))
@@ -109,6 +119,9 @@ X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.2, rando
 # --- Odczyt modelu z pliku
 lin_model = pickle.load(open('LSTAT_RM/lin_model.model', 'rb'))
 
+scores = cross_val_score(lin_model, X_test, Y_test, cv=5)
+print("-- Cross Validation\n")
+print(scores)
 
 y_train_predict = lin_model.predict(X_train)
 rmse = (np.sqrt(mean_squared_error(Y_train, y_train_predict)))
